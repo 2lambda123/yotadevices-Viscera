@@ -19,32 +19,33 @@ import com.yotadevices.viscera.Presenter;
 import com.yotadevices.viscera.Screen;
 
 /**
- * The {@code GenericModule} is some module, which has only one view and only one presenter,
- * implements detaching and updating logic. If some extra logic for {@link #update(Screen)} or
- * for {@link #detach(Screen)} is needed, just override them.
+ * The {@code GenericModule} is some module, which has only one view and only
+ * one presenter, implements detaching and updating logic. If some extra logic
+ * for {@link #update(Screen)} or for {@link #detach(Screen)} is needed, just
+ * override them.
  *
  * @author Vitalii Dmitriev
  * @see Module
  * @since 17.11.2016
  */
 public abstract class GenericModule<T extends Screen> implements Module<T> {
-    /**
-     * An appropriate presenter. Protected as must be accessible inside children.
-     */
-    protected Presenter<T> mPresenter;
+  /**
+   * An appropriate presenter. Protected as must be accessible inside children.
+   */
+  protected Presenter<T> mPresenter;
 
-    @Override
-    public Module update(T screen) {
-        if (null == mPresenter) {
-            throw new IllegalStateException("Presenter must be instantiated first!");
-        }
-        mPresenter.updateView(screen);
-        return this;
+  @Override
+  public Module update(T screen) {
+    if (null == mPresenter) {
+      throw new IllegalStateException("Presenter must be instantiated first!");
     }
+    mPresenter.updateView(screen);
+    return this;
+  }
 
-    @Override
-    public Module detach(T screen) {
-        mPresenter = null;
-        return this;
-    }
+  @Override
+  public Module detach(T screen) {
+    mPresenter = null;
+    return this;
+  }
 }

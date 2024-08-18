@@ -27,60 +27,55 @@ import java.util.HashMap;
  */
 public class Container {
 
-    /**
-     * Contains all modules of this application.
-     */
-    private HashMap<String, Module> mModules;
+  /**
+   * Contains all modules of this application.
+   */
+  private HashMap<String, Module> mModules;
 
-    private Container() {
-        mModules = new HashMap<>();
-    }
+  private Container() { mModules = new HashMap<>(); }
 
-    public static Container getInstance() {
-        return InstanceHolder.INSTANCE;
-    }
+  public static Container getInstance() { return InstanceHolder.INSTANCE; }
 
-    /**
-     * Puts module implementation to the modules map.
-     *
-     * @param module some {@code Module}, which is already wired
-     *               or supposed to attach all its objects.
-     * @return this injector.
-     */
-    public Container put(Module module) {
-        String moduleName = module.getClass().getSimpleName();
-        if (mModules.containsKey(moduleName)) {
-            mModules.remove(moduleName);
-        }
-        mModules.put(moduleName, module);
-        return this;
+  /**
+   * Puts module implementation to the modules map.
+   *
+   * @param module some {@code Module}, which is already wired
+   *               or supposed to attach all its objects.
+   * @return this injector.
+   */
+  public Container put(Module module) {
+    String moduleName = module.getClass().getSimpleName();
+    if (mModules.containsKey(moduleName)) {
+      mModules.remove(moduleName);
     }
+    mModules.put(moduleName, module);
+    return this;
+  }
 
-    /**
-     * Returns a {@code Module}, which name is given as a parameter.
-     *
-     * @param clazz the class of the needed module.
-     * @return required module.
-     * @throws IllegalAccessError if there is no such module.
-     */
-    public Module get(Class clazz) {
-        if (!mModules.containsKey(clazz.getSimpleName())) {
-            throw new IllegalAccessError("Module " + clazz.getSimpleName()
-                    + " wasn't injected or You are trying to get the nonexistent module!");
-        }
-        return mModules.get(clazz.getSimpleName());
+  /**
+   * Returns a {@code Module}, which name is given as a parameter.
+   *
+   * @param clazz the class of the needed module.
+   * @return required module.
+   * @throws IllegalAccessError if there is no such module.
+   */
+  public Module get(Class clazz) {
+    if (!mModules.containsKey(clazz.getSimpleName())) {
+      throw new IllegalAccessError("Module " + clazz.getSimpleName() +
+                                   (" wasn't injected or You are trying to " +
+                                    "get the nonexistent module!"));
     }
+    return mModules.get(clazz.getSimpleName());
+  }
 
-    /**
-     * Returns amount of modules in the system.
-     *
-     * @return modules count.
-     */
-    public int getCount() {
-        return mModules.size();
-    }
+  /**
+   * Returns amount of modules in the system.
+   *
+   * @return modules count.
+   */
+  public int getCount() { return mModules.size(); }
 
-    private static class InstanceHolder {
-        private static final Container INSTANCE = new Container();
-    }
+  private static class InstanceHolder {
+    private static final Container INSTANCE = new Container();
+  }
 }

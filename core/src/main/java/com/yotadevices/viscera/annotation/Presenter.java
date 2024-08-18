@@ -19,15 +19,17 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 /**
- * This annotation marks that a class is a {@link com.yotadevices.viscera.Presenter}.
+ * This annotation marks that a class is a {@link
+ * com.yotadevices.viscera.Presenter}.
  *
  * @author Vitalii Dmitriev
  * @since 25.05.2017
  */
 @Target({ElementType.TYPE})
 public @interface Presenter {
-    /**
-     * The name of the {@link com.yotadevices.viscera.di.Module}, presenter instantiated by.
-     */
-    String value();
+  /**
+   * The name of the {@link com.yotadevices.viscera.di.Module}, presenter
+   * instantiated by.
+   */
+  String value();
 }

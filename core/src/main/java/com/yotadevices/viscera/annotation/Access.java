@@ -16,18 +16,17 @@
 package com.yotadevices.viscera.annotation;
 
 import com.yotadevices.viscera.Screen;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 /**
- * Method, which is annotated with this annotation will be used to generate the {@link Screen}
- * interface for a class, which marked as {@link View}. Such methods will be accessible inside
+ * Method, which is annotated with this annotation will be used to generate the
+ * {@link Screen} interface for a class, which marked as {@link View}. Such
+ * methods will be accessible inside
  * {@link Presenter}.
  *
  * @author Vitalii Dmitriev
  * @since 25.05.2017
  */
 @Target({ElementType.METHOD})
-public @interface Access {
-}
+public @interface Access {}

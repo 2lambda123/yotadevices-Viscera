@@ -16,8 +16,9 @@
 package com.yotadevices.viscera;
 
 /**
- * The {@link Presenter} is an object, which takes the main control of views. Can either work with
- * only one * {@link Screen} instance or with several instances, depending on an implementation.
+ * The {@link Presenter} is an object, which takes the main control of views.
+ * Can either work with only one * {@link Screen} instance or with several
+ * instances, depending on an implementation.
  *
  * @author Vitalii Dmitriev
  * @see Screen
@@ -25,22 +26,24 @@ package com.yotadevices.viscera;
  */
 public abstract class Presenter<T extends Screen> {
 
-    /**
-     * Saves a {@link Screen} locally to perform some operations later (e.g. it can be used in some
-     * callback methods, which are out of this method's scope). Also, a Screen can be configured
-     * here by calling its appropriate methods (which are intended to be called once or seldom).
-     *
-     * @param screen a screen instance.
-     */
-    public abstract void addView(T screen);
+  /**
+   * Saves a {@link Screen} locally to perform some operations later (e.g. it
+   * can be used in some callback methods, which are out of this method's
+   * scope). Also, a Screen can be configured here by calling its appropriate
+   * methods (which are intended to be called once or seldom).
+   *
+   * @param screen a screen instance.
+   */
+  public abstract void addView(T screen);
 
-    /**
-     * Here can be performed some operations like getting data from database (using model classes,
-     * e.g. repository), or initiated downloading from a server, and after that either
-     * a {@link Screen} can be updated here for synchronous work or can be set some callback for
-     * other model objects to update a given Screen instance asynchronously.
-     *
-     * @param screen a screen instance.
-     */
-    public abstract void updateView(T screen);
+  /**
+   * Here can be performed some operations like getting data from database
+   * (using model classes, e.g. repository), or initiated downloading from a
+   * server, and after that either a {@link Screen} can be updated here for
+   * synchronous work or can be set some callback for other model objects to
+   * update a given Screen instance asynchronously.
+   *
+   * @param screen a screen instance.
+   */
+  public abstract void updateView(T screen);
 }

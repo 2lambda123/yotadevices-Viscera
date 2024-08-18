@@ -18,20 +18,22 @@ package com.yotadevices.viscera;
 import android.view.ViewGroup;
 
 /**
- * The state of the {@code Screen}. Fills a root view of a screen with other views, can also set
- * custom data (text, images etc), sizes, colors and so on.
+ * The state of the {@code Screen}. Fills a root view of a screen with other
+ * views, can also set custom data (text, images etc), sizes, colors and so on.
  *
  * @author Vitalii Dmitriev
  * @since 24.11.2016
  */
 public abstract class State<T extends Presenter> {
-    /**
-     * Apply state: fill a {@link ViewGroup} with other views, change their state, set some content,
-     * which could be got from an appropriate {@link Presenter}.
-     *
-     * @param root      ViewGroup, containing views to be filled or a stub root to fill with
-     *                  dynamically inflated views.
-     * @param presenter attached presenter, used to get data or interact using presenter's methods.
-     */
-    public abstract void apply(ViewGroup root, T presenter);
+  /**
+   * Apply state: fill a {@link ViewGroup} with other views, change their state,
+   * set some content, which could be got from an appropriate {@link Presenter}.
+   *
+   * @param root      ViewGroup, containing views to be filled or a stub root to
+   *     fill with
+   *                  dynamically inflated views.
+   * @param presenter attached presenter, used to get data or interact using
+   *     presenter's methods.
+   */
+  public abstract void apply(ViewGroup root, T presenter);
 }

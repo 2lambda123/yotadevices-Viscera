@@ -19,18 +19,19 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 /**
- * Class, annotated with this annotation will be injected into the module and accessed in
- * a {@link Presenter} of the module.
- * Normally, it can be some data class (e.g. DAO, Repository, DatabaseHelper etc), or some util
- * class, which requires instantiating and other objects, which must be accessed by Presenter.
+ * Class, annotated with this annotation will be injected into the module and
+ * accessed in a {@link Presenter} of the module. Normally, it can be some data
+ * class (e.g. DAO, Repository, DatabaseHelper etc), or some util class, which
+ * requires instantiating and other objects, which must be accessed by
+ * Presenter.
  *
  * @author Vitalii Dmitriev
  * @since 25.05.2017
  */
 @Target({ElementType.TYPE})
 public @interface Element {
-    /**
-     * The name of the {@link com.yotadevices.viscera.di.Module}.
-     */
-    String value();
+  /**
+   * The name of the {@link com.yotadevices.viscera.di.Module}.
+   */
+  String value();
 }

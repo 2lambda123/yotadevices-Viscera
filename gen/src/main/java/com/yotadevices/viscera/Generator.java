@@ -19,7 +19,7 @@ package com.yotadevices.viscera;
  * @author Vitalii Dmitriev
  */
 public class Generator {
-    public static void main(String... args) {
-        // TODO: 5/29/17 implement a generator.
-    }
+  public static void main(String... args) {
+    // TODO: 5/29/17 implement a generator.
+  }
 }

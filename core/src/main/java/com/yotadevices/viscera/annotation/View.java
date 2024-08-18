@@ -26,8 +26,8 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE})
 public @interface View {
-    /**
-     * Names of all {@link com.yotadevices.viscera.di.Module} to attach a View to.
-     */
-    String[] value();
+  /**
+   * Names of all {@link com.yotadevices.viscera.di.Module} to attach a View to.
+   */
+  String[] value();
 }
