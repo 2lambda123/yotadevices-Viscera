@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Yota Devices LLC
+ * Copyright (C) 2017 Yota Devices LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-apply plugin: 'com.android.application'
+package com.yotadevices.viscera;
 
-android {
-    compileSdkVersion targetVersion
-    buildToolsVersion buildVersion
-
-    defaultConfig {
-        applicationId "com.yotadevices.example"
-        minSdkVersion 14
-        targetSdkVersion targetVersion
-        versionCode majorVersion
-        versionName "${majorVersion}.${minorVersion}"
+/**
+ * @author Vitalii Dmitriev
+ */
+public class Generator {
+    public static void main(String... args) {
+        // TODO: 5/29/17 implement a generator.
     }
-}
-
-dependencies {
-    compile 'com.android.support:design:25.3.1'
-    compile project(':core')
 }

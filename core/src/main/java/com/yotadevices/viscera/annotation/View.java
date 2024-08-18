@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Yota Devices LLC
+ * Copyright (C) 2017 Yota Devices LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,22 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-apply plugin: 'com.android.application'
+package com.yotadevices.viscera.annotation;
 
-android {
-    compileSdkVersion targetVersion
-    buildToolsVersion buildVersion
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
 
-    defaultConfig {
-        applicationId "com.yotadevices.example"
-        minSdkVersion 14
-        targetSdkVersion targetVersion
-        versionCode majorVersion
-        versionName "${majorVersion}.${minorVersion}"
-    }
-}
-
-dependencies {
-    compile 'com.android.support:design:25.3.1'
-    compile project(':core')
+/**
+ * This annotation marks a class as a View part of a module.
+ *
+ * @author Vitalii Dmitriev
+ * @since 25.05.2017
+ */
+@Target({ElementType.TYPE})
+public @interface View {
+    /**
+     * Names of all {@link com.yotadevices.viscera.di.Module} to attach a View to.
+     */
+    String[] value();
 }
